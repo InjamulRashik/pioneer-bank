@@ -12,13 +12,17 @@ const depositBtn = document.getElementById("deposit");
 depositBtn.addEventListener("click", function() {
   const depositNumber = getInputNumber("depositAmount");
 
+  if (depositNumber < 0) {
+    alert("Number can't be negative");
+  } else {
+    updateSpanText("currentDeposit", depositNumber);
+    updateSpanText("currentBalance", depositNumber);
+    document.getElementById("depositAmount").value = "";
+  }
   //   const currentDeposit = document.getElementById("currentDeposit").innerText;
   //   const currentDepositNumber = parseFloat(currentDeposit);
   //   const totalDeposit = depositNumber + currentDepositNumber;
   //   document.getElementById("currentDeposit").innerText = totalDeposit;
-  updateSpanText("currentDeposit", depositNumber);
-  updateSpanText("currentBalance", depositNumber);
-  document.getElementById("depositAmount").value = "";
 });
 
 //withdraw button event handler
